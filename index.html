@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Discount Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            display: inline-block;
+            padding: 20px;
+            border: 2px solid #00b3b3;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #ccc;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 95%;
+            padding: 10px;
+            background-color: #28cd28;
+            color: white;
+            font-weight: bold;
+            font-style: italic;
+            border: none;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 style="color: green; font-style: italic;">DISCOUNT CALCULATOR</h2>
+        <p style="font-style: italic;">Enter the Bill amount and discount in percentage</p>
+        <label>Bill Amount</label><br>
+        <input type="number" id="billAmount" placeholder="Enter bill amount"><br>
+
+        <label>Discount Percentage</label><br>
+        <select id="discountPercentage">
+            <option value="5">5</option>
+            <option value="10" selected>10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select><br>
+
+        <button onclick="calculateDiscount()">Calculate</button>
+
+        <div id="result">Total Discount Amount</div>
+    </div>
+
+    <script>
+        function calculateDiscount() {
+            const bill = parseFloat(document.getElementById('billAmount').value);
+            const discount = parseFloat(document.getElementById('discountPercentage').value);
+            if (!isNaN(bill) && !isNaN(discount)) {
+                const discountAmount = (bill * discount) / 100;
+                document.getElementById('result').innerText = Total Discount Amount: ₹${discountAmount.toFixed(2)};
+            } else {
+                document.getElementById('result').innerText = 'Please enter valid inputs.';
+            }
+        }
+    </script>
+</body>
+</html>
